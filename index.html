@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="scroll-smooth scroll-pt-24">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SENTRL | Intelligent Infrastructure</title>
+    <meta name="description" content="SENTRL engineers intelligent infrastructure that allows complex operations to run faster, cleaner, and with absolute control." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                base: '#050709',
+                surface: '#0E1419',
+                cyan: '#3FE6FF',
+                cyanGlow: '#5CF2FF',
+                magenta: '#FF2F92', // Electric Magenta Added
+                magentaDeep: '#D10065',
+                techBlue: '#1E7FBF',
+                deepBlue: '#0c1a26',
+                steel: '#4C6F8A',
+                silver: '#E2EDF3',
+                muted: '#6E7C87',
+                warning: '#D97706',
+                danger: '#EF4444',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'hex-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231E7FBF' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+            },
+            boxShadow: {
+              'cyan-glow': '0 0 20px -5px rgba(63, 230, 255, 0.4)',
+              'cyan-glow-lg': '0 0 40px -10px rgba(63, 230, 255, 0.5)',
+              'magenta-glow': '0 0 20px -5px rgba(255, 47, 146, 0.4)', // Added Magenta Glow
+              'inset-glow': 'inset 0 0 20px -10px rgba(63, 230, 255, 0.5)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scan': 'scan 8s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'spin-reverse-slow': 'spin-reverse 15s linear infinite',
+              'spin-slower': 'spin 60s linear infinite',
+              'spin-reverse-slower': 'spin-reverse 80s linear infinite',
+            },
+            keyframes: {
+              scan: {
+                '0%': { backgroundPosition: '0% 0%' },
+                '100%': { backgroundPosition: '0% 100%' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'spin-reverse': {
+                '0%': { transform: 'rotate(360deg)' },
+                '100%': { transform: 'rotate(0deg)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050709;
+        color: #E2EDF3;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+      
+      /* Futuristic Backgrounds */
+      .bg-hex-mesh {
+        background-color: #050709;
+        background-image: 
+          radial-gradient(circle at 50% 50%, rgba(30, 127, 191, 0.08) 0%, transparent 70%),
+          url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20l20-20M0 40l20-20' stroke='%231E7FBF' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
+      }
+
+      .bg-grid-tech {
+        background-size: 40px 40px;
+        background-image: 
+          linear-gradient(to right, rgba(30, 127, 191, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(30, 127, 191, 0.08) 1px, transparent 1px);
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+      }
+
+      /* Glow Utilities */
+      .text-glow-cyan {
+        text-shadow: 0 0 15px rgba(63, 230, 255, 0.6);
+      }
+      
+      .text-glow-magenta {
+        text-shadow: 0 0 15px rgba(255, 47, 146, 0.6);
+      }
+      
+      .border-glow {
+        box-shadow: 0 0 10px rgba(63, 230, 255, 0.2);
+      }
+
+      /* Tech Borders */
+      .tech-border-corner {
+        position: relative;
+        clip-path: polygon(
+          0 0, 
+          100% 0, 
+          100% calc(100% - 10px), 
+          calc(100% - 10px) 100%, 
+          0 100%
+        );
+      }
+
+      .tech-bracket {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-color: rgba(63, 230, 255, 0.5);
+        border-style: solid;
+        transition: all 0.3s ease;
+      }
+      .tech-bracket-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+      .tech-bracket-tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+      .tech-bracket-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+      .tech-bracket-br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+      .group:hover .tech-bracket {
+        width: 100%;
+        height: 100%;
+        border-color: rgba(63, 230, 255, 0.8);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #06080A;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1E7FBF;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3FE6FF;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
